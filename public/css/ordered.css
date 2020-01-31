@@ -1,0 +1,104 @@
+/**/
+
+#quests {
+    text-align: center;
+    font-size: 23pt;
+}
+
+#guildBoard {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.shadow {
+    width: 40%;
+    margin: 20px 0px;
+    height: auto;
+    box-shadow: 0px 10px 10px 3px gray;
+}
+
+.guildPaper {
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    box-shadow: 0px 0px 30px saddlebrown inset;
+    background: radial-gradient(white, papayawhip, antiquewhite);
+}
+
+.guildPaper h2 {
+    text-align: center;
+    font-size: 16pt;
+}
+
+.guildPaper .explanation {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.explanation h3 {
+    font-size: 12pt;
+}
+
+.mini-info {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.owner,
+.type,
+.reward,
+.qualification,
+.period {
+    margin-bottom: 10px;
+}
+
+.owner p,
+.type p,
+.reward p,
+.qualification div,
+.period p {
+    text-indent: 0.8em;
+    margin: 5px 0px;
+}
+
+.amount p {
+    margin: 5px 0px;
+    text-indent: 2em;
+    font-size: 14pt;
+}
+.amount p span {
+    font-size: 11pt;
+}
+
+.lank p {
+    margin: 5px 0px;
+    text-indent: 2em;
+    font-size: 10pt;
+}
+
+.deli {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    text-align: center;
+}
+
+/*ない場合*/
+.noQuests {
+    text-align: center;
+}
+
+.noQuests h2 {
+    margin-bottom: 30px;
+}
+
+/*alert*/
+#dialog {
+    display: none;
+}

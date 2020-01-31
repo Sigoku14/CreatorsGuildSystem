@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+/* =============================================================================
+    Initialization
+============================================================================= */
+html, body, div,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dt, dd, ul, ol, li,
+abbr, address, cite, code,
+fieldset, form, input, select, textarea, label, legend,
+table, caption, thead, tbody, tfoot, tr, th, td {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+ul, ol, li {
+  list-style: none outside;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: inherit;
+}
+
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+pre {
+  font-family: inherit;
+}
+
+address, em, strong {
+  font-style: normal;
+  font-weight: normal;
+}
+
+small {
+  font-size: 100%;
+}
+
+img {
+  vertical-align: bottom;
+  border: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+input, select, textarea, button {
+  line-height: inherit;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}

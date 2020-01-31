@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+/* =============================================================================
+    Style
+============================================================================= */
+
+/* Common
+============================================================================= */
+/* Basis
+----------------------------------------------------------------------------- */
+html {
+    height: 100%;
+    overflow-y: scroll;
+    font-size: 62.5%;
+}
+
+body {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 980px;
+    min-height: 100%;
+    line-height: 1.6;
+    padding: 0 0 50px;
+    letter-spacing: 1px;
+    font-family: "メイリオ", "Meiryo", sans-serif;
+    font-size: 1.4em;
+    background: url(/CreatorsGuild/public/img/image/background.png);
+}
+
+body:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    height: calc(100% - 60px);
+    width: 2px;
+    background: #40220f;
+}
+
+.pcNone {
+    display: none !important;
+}
+
+/* ------ backToTop ------ */
+p#backToTop {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 10;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+p#backToTop > a {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+}
+
+p#backToTop > a:before,
+p#backToTop > a:after {
+    content: "";
+    display: block;
+    line-height: 1;
+    font-size: 0;
+}
+
+p#backToTop > a:before {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: #000;
+}
+
+p#backToTop > a:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -10px;
+    border-bottom: 14px #fff solid;
+    border-right: 10px transparent solid;
+    border-left: 10px transparent solid;
+    border-radius: 3px;
+}
+
+/* ------ clearfix(float release) ------ */
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Header
+----------------------------------------------------------------------------- */
+h1#headerLogo,
+p#headerLogo {
+    margin: 0 10px;
+    padding: 10px 0 0 20px;
+    border-bottom: 2px #40220f solid;
+}
+#headerLogo img {
+    width: 20%;
+}
+
+/* Footer
+----------------------------------------------------------------------------- */
+div#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+p#copyright {
+    margin: 0 10px;
+    border-top: 2px #40220f solid;
+    text-align: center;
+}
+
+/* MainContents
+----------------------------------------------------------------------------- */
+div#body {
+    margin: 30px 0 0;
+}
+
+div#breadcrumbs {
+    margin: 10px 35px 0;
+}
+
+div#breadcrumbs a {
+    color: inherit;
+}
+
+div#breadcrumbs a:hover {
+    color: #9a6400;
+}
+
+div#breadcrumbs span.delimiter:before {
+    content: ">";
+}
+
+/* Page
+============================================================================= */
+/* Common
+----------------------------------------------------------------------------- */
+div.workBox {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px 0 0;
+}
+
+div.workBox form {
+    border: 2px #40220f solid;
+    border-radius: 5px;
+    padding: 0 0 30px;
+}
+
+div.workBox h2.title {
+    display: table;
+    position: relative;
+    line-height: 1;
+    margin: -19px auto 30px;
+    padding: 0 20px;
+}
+
+div.workBox h2.title:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 2px;
+    margin: -1px 0 0;
+    background: #d2c49e;
+}
+
+div.workBox h2.title > img {
+    position: relative;
+    z-index: 1;
+}
+
+/* Index
+----------------------------------------------------------------------------- */
+div.workBox dl.login {
+    width: 80%;
+    margin: 0 auto 30px;
+}
+
+div.workBox dl.login > dt {
+    width: 8em;
+    padding: 2px 0;
+    font-weight: bold;
+}
+
+div.workBox dl.login > dd {
+    margin: -1.9em 0 1em 9em;
+}
+
+div.workBox dl.login > dd > input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2px;
+    border: 1px #40220f solid;
+}
+
+div.workBox p.button {
+    text-align: center;
+}
+
+div.workBox p.button > input {
+    padding: 5px 40px;
+    border: 3px #fff double;
+    color: #fff;
+    background: #40220f;
+}
+
+/* Register
+----------------------------------------------------------------------------- */
+div.workBox table.register {
+    width: 80%;
+    margin: 0 auto 30px;
+}
+
+div.workBox table.register th,
+div.workBox table.register td {
+    padding: 0.5em 2px;
+}
+
+div.workBox table.register th {
+    width: 11em;
+    font-weight: bold;
+}
+
+div.workBox table.register th > label {
+    display: block;
+    position: relative;
+}
+
+div.workBox table.register th > label > span.require {
+    position: absolute;
+    right: 0;
+    color: #f00;
+}
+
+div.workBox table.register td input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2px;
+    border: 1px #40220f solid;
+}
+
+.add {
+    text-align: center;
+}

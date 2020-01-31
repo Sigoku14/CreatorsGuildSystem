@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+#evaluation {
+    width: 50%;
+    margin: auto;
+    height: auto;
+    box-shadow: 0px 10px 10px 3px gray;
+}
+#for-creator,
+#for-owner {
+    width: 100%;
+    padding: 40px 20px;
+    box-shadow: 0px 0px 30px saddlebrown inset;
+    background: radial-gradient(white, papayawhip, antiquewhite);
+}
+
+h2 {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.exp {
+    width: 60%;
+    margin: 20px 10%;
+}
+
+.question {
+    width: 80%;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.form #q1,
+.form #q2,
+.form #q3,
+.form #q4 {
+    width: 70%;
+    font-size: 12pt;
+}
+
+.form .qin {
+    width: 30%;
+    font-size: 12pt;
+}
+.form input {
+    width: 80%;
+    border-bottom: 1px solid black;
+    background: inherit;
+    font-size: 12pt;
+}
+
+.textarea {
+    margin-top: 40px;
+}
+.textarea textarea {
+    width: 95%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid black;
+    resize: none;
+    font-size: 12pt;
+}
+button {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px 10px;
+    font-size: 10pt;
+    background: inherit;
+    cursor: pointer;
+}

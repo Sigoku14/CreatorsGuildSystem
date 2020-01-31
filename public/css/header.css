@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: blanchedalmond;
+}
+
+body {
+    min-height: 850px;
+    max-height: auto;
+    min-width: 1680px;
+    /* background-image: url("/CreatorsGuild/public/img/image/back3.png"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    width: 100vw;
+    height: 115px;
+    border-bottom: 1px solid brown;
+    position: relative;
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+header div {
+    max-width: 1280px;
+    min-width: 800px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    padding: 0 30px;
+}
+
+h1 img {
+    width: 20%;
+}
+
+ul li {
+    list-style: none;
+}
+
+.nav-ul {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-ul li {
+    width: auto;
+    cursor: pointer;
+}
+
+.nav-ul li .icon {
+    width: auto;
+    height: 25px;
+}
+
+.nav-ul span {
+    margin-left: 10px;
+    font-size: 10.5pt;
+}
+
+*:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrapper {
+    max-width: 1280px;
+    min-width: 800px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+#setting {
+    padding: 10px;
+    border: 3px solid dimgray;
+    border-radius: 50px;
+    font-size: 10pt;
+    color: dimgray;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+}
+
+#setting:hover {
+    border-color: darkred;
+    color: red;
+}
+
+footer {
+    margin-top: auto;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}

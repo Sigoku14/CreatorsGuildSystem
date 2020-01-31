@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.already {
+    display: none;
+}
+
+.de-sha {
+    width: 50%;
+    height: 650px;
+    margin: auto;
+    box-shadow: 0px 10px 10px 3px gray;
+}
+.box {
+    height: 100%;
+    overflow: scroll;
+    box-shadow: 0px 0px 30px saddlebrown inset;
+    background: radial-gradient(white, papayawhip, antiquewhite);
+    position: relative;
+}
+
+#detail {
+    padding: 30px 0;
+    width: 90%;
+    margin: auto;
+}
+#detail h2 {
+    text-align: center;
+    font-size: 16pt;
+}
+
+#detail .explanation {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.explanation h3 {
+    font-size: 12pt;
+}
+
+.mini-info {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.type,
+.reward,
+.qualification,
+.period {
+    margin-bottom: 10px;
+}
+
+.type p,
+.reward p,
+.qualification div,
+.period p {
+    text-indent: 0.8em;
+    margin: 5px 0px;
+}
+
+.amount p {
+    margin: 5px 0px;
+    text-indent: 2em;
+    font-size: 14pt;
+}
+.amount p span {
+    font-size: 11pt;
+}
+
+.lank p {
+    margin: 5px 0px;
+    text-indent: 2em;
+    font-size: 10pt;
+}
+
+#creChoose {
+    width: 80%;
+    margin: auto;
+}
+
+#creators {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.creator-box {
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.name-link {
+    text-indent: 10px;
+}
+button {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px 10px;
+    font-size: 10pt;
+    background: inherit;
+    cursor: pointer;
+}
+
+.name-color-Copper {
+    color: chocolate;
+    text-shadow: 0px 0px 10px chocolate;
+}
+.name-color-Silver {
+    color: silver;
+    text-shadow: 0px 0px 10px gray;
+}
+.name-color-Gold {
+    color: goldenrod;
+    text-shadow: 0px 0px 10px gold;
+}
+.name-color-Platina {
+    color: white;
+    text-shadow: 0px 0px 10px gray;
+}
+.name-color-Adamant {
+    color: aqua;
+    text-shadow: 0px 0px 10px mediumaquamarine;
+}
+
+.deli {
+    position: absolute;
+    bottom: 30px;
+    right: 45%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px 10px;
+    font-size: 10pt;
+    background: inherit;
+    cursor: pointer;
+}

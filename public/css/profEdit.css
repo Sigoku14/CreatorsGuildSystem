@@ -1,0 +1,78 @@
+/*プロフィール編集画面*/
+.edit-h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20pt;
+}
+
+.form-sec {
+    width: 80%;
+    margin: auto;
+    box-shadow: 0px 0px 30px saddlebrown inset;
+    background: radial-gradient(white, papayawhip, antiquewhite);
+    padding: 30px;
+}
+
+.form-sec div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
+
+.form-sec p {
+    width: 50%;
+    text-indent: 3em;
+}
+
+.form-sec input:focus,
+.form-sec textarea:focus {
+    background-color: antiquewhite;
+}
+
+.form-sec input[type="text"],
+.form-sec textarea {
+    width: 50%;
+    border: 1px solid navy;
+    padding: 5px;
+}
+
+.second {
+    margin-left: 60px;
+}
+
+.form-sec span {
+    line-height: 100%;
+    text-indent: 1em;
+}
+
+.birth {
+    line-height: 100%;
+}
+
+#push {
+    display: block;
+    margin: auto;
+    padding: 5px 15px;
+    font-size: 15pt;
+    color: royalblue;
+    border: 1px solid royalblue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#push:hover {
+    color: white;
+    background-color: royalblue;
+    transition: 0.3s ease-in-out;
+}
+
+.comment p {
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+    border: 2px solid chartreuse;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px lime;
+}

@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.new-shadow {
+    width: 50%;
+    margin: auto;
+    height: auto;
+    box-shadow: 0px 10px 10px 3px gray;
+}
+.new-quest-paper {
+    width: 100%;
+    padding: 40px 20px;
+    box-shadow: 0px 0px 30px saddlebrown inset;
+    background: radial-gradient(white, papayawhip, antiquewhite);
+}
+.new-quest-paper h2 {
+    text-align: center;
+}
+
+.inside {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.title,
+.genre,
+.type,
+.reward,
+.amount,
+.lank,
+.applied,
+.period {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+.exp {
+    margin-top: 20px;
+}
+
+.title input,
+.type input,
+.reward input,
+.amount input,
+.applied input,
+.period input {
+    width: 60%;
+    border: 0;
+    background-color: inherit;
+    border-bottom: 1px solid black;
+    font-size: 14pt;
+}
+
+.exp textarea {
+    width: 95%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid black;
+    resize: none;
+    font-size: 12pt;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px 10px;
+    font-size: 10pt;
+    background: inherit;
+    cursor: pointer;
+}
