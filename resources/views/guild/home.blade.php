@@ -70,7 +70,7 @@
                 <div>
                     <p id="created-at"></p>
                 </div>
-                <button name="order" id="order" value="">受注</button>
+                <button name="order" id="order" value="">応募</button>
             </div>
         </div>
     </div>
