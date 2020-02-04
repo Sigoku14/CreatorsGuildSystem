@@ -298,8 +298,8 @@
                 noQuestTitle.innerHTML = "応募中のクエストが見つかりません。";
                 noQuest.appendChild(noQuestTitle);
 
-                $(".paper div").addClass("no-quest");
-                $("#order").addClass("no-quest");
+                // $(".paper div").addClass("no-quest");
+                // $("#order").addClass("no-quest");
             }
         }).fail(function(xhr, status, error) {
             console.log(xhr);

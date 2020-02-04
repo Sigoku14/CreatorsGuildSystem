@@ -45,7 +45,7 @@ class QuestController extends Controller
     {
         $id = $request->input('id');
         $search = $request->input('search');
-        $genre = $request->input('genres');
+        $genre = $request->input('genre');
         $reward = $request->input('reward');
         $lank = $request->input('lank');
         $date = date('Y-m-d');
@@ -53,7 +53,7 @@ class QuestController extends Controller
         $query = DB::table('quests')->select()->join('genres', 'genres.genre_id', '=', 'quests.genre_id');
         if (isset($search)) {
             $query->where('quests.quest_title', 'like', '%' . $search . '%');
-            $query->where('quests.quest_explanation', 'like', '%' . $search . '%');
+            $query->orWhere('quests.quest_explanation', 'like', '%' . $search . '%');
         }
         if (isset($genre)) {
             $query->where('quests.genre_id', $genre);

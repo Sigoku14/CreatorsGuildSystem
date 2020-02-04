@@ -6,7 +6,7 @@
 
 @section('content')
 <article>
-    <h2>依頼中クエストリスト</h2>
+    <h2>発注中クエストリスト</h2>
     <div class="makeQ">
         <a href="/CreatorsGuild/public/makeQuest/{{$id}}">＋</a>
     </div>
