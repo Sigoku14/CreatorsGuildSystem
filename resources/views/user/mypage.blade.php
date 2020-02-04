@@ -55,7 +55,7 @@
                 if (value.user_icon_path === null || value.user_icon_path === "") {
                     image = "/CreatorsGuild/public/img/icon/noImage.png";
                 } else {
-                    image = '/CreatorsGuild/public/' + value.user_icon_path;
+                    image = '/CreatorsGuild/public/img/userIcon/' + value.user_icon_path;
                 }
                 $("#userIcon").attr('src', image);
                 i++;

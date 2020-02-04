@@ -17,5 +17,17 @@ class DatabaseSeeder extends Seeder
         $this->call(
             LanksTableSeeder::class
         );
+        $this->call(
+            UsersTableSeeder::class
+        );
+        $this->call(
+            ProfilesTableSeeder::class
+        );
+        $this->call(
+            QuestsTableSeeder::class
+        );
+        $this->call(
+            UserExpsTableSeeder::class
+        );
     }
 }

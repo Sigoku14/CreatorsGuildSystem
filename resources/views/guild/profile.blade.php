@@ -40,7 +40,7 @@
 
                 //画像の存在チェック
                 if (item.user_icon_path !== "") {
-                    image = '/CreatorsGuild/public/' + item.user_icon_path;
+                    image = '/CreatorsGuild/public/img/userIcon/' + item.user_icon_path;
                 } else {
                     image = "/CreatorsGuild/public/img/icon/noImage.png";
                 }
