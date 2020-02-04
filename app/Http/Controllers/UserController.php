@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProfileRequest;
+// use App\Http\Requests\ProfileRequest;
+// use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -169,10 +171,14 @@ class UserController extends Controller
         $profile = $request->input('profile');
         $user_updated_at = date('Y-m-d H:i:s');
 
-        $icon_path = '';
-        // $icon_path = $request->input('id') . '.jpg';
-        // $image = base64_decode($request->input('icon'));
-        // $image->storeAs('public/img/usericon/', $request->input('id') . '.jpg');
+        // Base64文字列をデコードしてバイナリに変換
+        list(, $fileData) = explode(';', $request->input('icon'));
+        list(, $fileData) = explode(',', $fileData);
+        $fileData = base64_decode($fileData);
+        $fileName = $request->input('id') . "_icon" . '.jpg';
+        // 保存するパスを決める
+        $path = "/CreatorsGuild/public/img/userIcon/";
+        // $data = Storage::putFileAs($path, $fileData, $fileName);
 
         DB::table('users')
             ->where('user_id', $request->input('id'))
@@ -180,7 +186,7 @@ class UserController extends Controller
 
         DB::table('profiles')
             ->where('user_id', $request->input('id'))
-            ->update(['profile' => $profile, 'user_area' => $user_area, 'user_gender' => $user_gender, 'user_birthday' => $user_birthday, 'user_sns' => $user_sns, 'user_icon_path' => $icon_path, 'user_updated_at' => $user_updated_at]);
+            ->update(['profile' => $profile, 'user_area' => $user_area, 'user_gender' => $user_gender, 'user_birthday' => $user_birthday, 'user_sns' => $user_sns, 'user_icon_path' => $fileName, 'user_updated_at' => $user_updated_at]);
 
         $msg = 'プロフィールを変更しました。';
         return $msg;

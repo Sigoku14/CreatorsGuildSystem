@@ -39,7 +39,7 @@ class ProfilesTableSeeder extends Seeder
                 'user_gender' => 'male',
                 'user_birthday' => '2000-01-01',
                 'user_sns' => '',
-                'user_icon_path' => 'gamemaker_icon.jpg',
+                'user_icon_path' => '',
                 'user_updated_at' => date('Y-m-d H:i:s'),
             ],
             [
@@ -69,7 +69,7 @@ class ProfilesTableSeeder extends Seeder
                 'user_gender' => 'male',
                 'user_birthday' => '1976-11-12',
                 'user_sns' => '',
-                'user_icon_path' => 'laravel_icon.jpg',
+                'user_icon_path' => '',
                 'user_updated_at' => date('Y-m-d H:i:s'),
             ],
             [

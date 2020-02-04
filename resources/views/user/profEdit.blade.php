@@ -135,7 +135,7 @@
             'id': "{{$id}}",
         };
         send_data = JSON.stringify(arrayData);
-        console.log(send_data);
+        // console.log(send_data);
         $.ajax({
             type: "POST",
             url: "/CreatorsGuild/public/api/profEdit",
