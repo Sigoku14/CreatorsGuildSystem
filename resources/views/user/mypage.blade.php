@@ -14,7 +14,7 @@
         <!-- <a href="/CreatorsGuild/public/goUpdate/{{$id}}" id="update">ユーザ設定を編集</a> -->
         <section class="profile"></section>
         <div class="perform">
-            <a href="/CreatorsGuild/public/showPerformance/{{$id}}" id="showPerformance">実績を編集</a>
+            <a href="/CreatorsGuild/public/showPerformance/{{$id}}" id="showPerformance">実績追加</a>
         </div>
     </div>
 </article>

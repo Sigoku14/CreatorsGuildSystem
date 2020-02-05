@@ -19,7 +19,8 @@ class CreatePortfoliosTable extends Migration
             $table->string('title');
             $table->string('img_path');
             $table->string('comment');
-            $table->date('made_at');
+            $table->string('url');
+            $table->string('made_at');
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->integer('status');

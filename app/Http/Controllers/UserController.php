@@ -203,4 +203,38 @@ class UserController extends Controller
             'performance' => $performance,
         ]);
     }
+
+    public function addPerformance(Request $request)
+    {
+        $id = $request->input("id");
+        $title = $request->input('title');
+        $url = $request->input('url');
+        $com = $request->input('comment');
+        $madeAt = $request->input('madeYear') . "-" . $request->input('madeMonth');
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+        $status = 1;
+
+        $this->validate($request, [
+            'upload' => [
+                'required',
+                'file',
+                'image',
+                'mimes:jpeg,png',
+            ],
+            'title' => [
+                'required',
+            ]
+        ]);
+        if ($request->file('upload')->isValid([])) {
+            $date = date('YmdHis');
+            $img = $id . "_" . $date . ".jpg";
+            $filename = $request->upload->storeAs('public/portfolio', $img);
+
+            DB::table('portfolios')->insert(
+                ['user_id' => $id, 'title' => $title, 'img_path' => $img, 'comment' => $com, 'url' => $url, 'made_at' => $madeAt, 'created_at' => $created_at, 'updated_at' => $updated_at, 'status' => $status]
+            );
+            return redirect("/goMypage/" . $id);
+        }
+    }
 }
