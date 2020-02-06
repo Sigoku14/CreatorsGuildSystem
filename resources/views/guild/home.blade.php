@@ -61,7 +61,6 @@
                 </div>
                 <div id="owner-name">
                     <p>依頼主：</p>
-                    <a href="#" id="owner"></a>
                 </div>
                 <div id="apply">
                     <p id="applied"></p>
@@ -170,7 +169,7 @@
                     $("#type").append("納品形式：<span>" + value.submit_type + "</span>");
                     $("#genre").append("依頼ジャンル：<span>" + value.genre_name + "</span>");
                     $("#lank").append("推奨ランク：<span>" + value.lank_name + "</span>");
-                    $("#owner").append(value.user_id);
+                    $("#owner-name").append('<a href="/CreatorsGuild/public/showProfile/{{$id}}/' + value.user_id + '" id="owner">' + value.user_id + '</a>');
                     $("#now").append("募集人数：<span>" + msg.count[value.quest_id] + "/" + value.quest_people + "人</span>");
                     $("#applied").append("応募締切日：<span>" + afterApplied + " </span>");
                     $("#created-at").append("クエスト発行日：<span>" + afterCreated + " </span>");

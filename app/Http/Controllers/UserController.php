@@ -133,8 +133,30 @@ class UserController extends Controller
             ->where('profiles.user_id', $id)
             ->first();
 
+        $performance = DB::table('portfolios')->select()
+            ->where('user_id', $id)
+            ->get();
+
         return  response()->json([
             'profile' => $profile,
+            'performance' => $performance,
+        ]);
+    }
+    public function otherProf(Request $request)
+    {
+        $o_id = $request->input("o_id");
+        $profile[] = DB::table('profiles')->select()
+            ->join('users', 'users.user_id', '=', 'profiles.user_id')
+            ->where('profiles.user_id', $o_id)
+            ->first();
+
+        $performance = DB::table('portfolios')->select()
+            ->where('user_id', $o_id)
+            ->get();
+
+        return  response()->json([
+            'profile' => $profile,
+            'performance' => $performance,
         ]);
     }
 
@@ -171,14 +193,14 @@ class UserController extends Controller
         $profile = $request->input('profile');
         $user_updated_at = date('Y-m-d H:i:s');
 
-        // Base64文字列をデコードしてバイナリに変換
-        list(, $fileData) = explode(';', $request->input('icon'));
-        list(, $fileData) = explode(',', $fileData);
-        $fileData = base64_decode($fileData);
+        // // Base64文字列をデコードしてバイナリに変換
+        // list(, $fileData) = explode(';', $request->input('icon'));
+        // list(, $fileData) = explode(',', $fileData);
+        // $fileData = base64_decode($fileData);
         $fileName = $request->input('id') . "_icon" . '.jpg';
-        // 保存するパスを決める
-        $path = "/CreatorsGuild/public/img/userIcon/";
-        // $data = Storage::putFileAs($path, $fileData, $fileName);
+        // // 保存するパスを決める
+        // $path = "/CreatorsGuild/public/img/userIcon/";
+        // // $data = Storage::putFileAs($path, $fileData, $fileName);
 
         DB::table('users')
             ->where('user_id', $request->input('id'))
@@ -206,15 +228,6 @@ class UserController extends Controller
 
     public function addPerformance(Request $request)
     {
-        $id = $request->input("id");
-        $title = $request->input('title');
-        $url = $request->input('url');
-        $com = $request->input('comment');
-        $madeAt = $request->input('madeYear') . "-" . $request->input('madeMonth');
-        $created_at = date('Y-m-d H:i:s');
-        $updated_at = date('Y-m-d H:i:s');
-        $status = 1;
-
         $this->validate($request, [
             'upload' => [
                 'required',
@@ -224,8 +237,25 @@ class UserController extends Controller
             ],
             'title' => [
                 'required',
+            ],
+            'comment' => [
+                'required',
             ]
         ]);
+
+        $id = $request->input("id");
+        $title = $request->input('title');
+        $url = $request->input('url');
+        $com = $request->input('comment');
+        $madeAt = $request->input('madeYear') . "-" . $request->input('madeMonth');
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+        $status = 1;
+
+        if ($url == '') {
+            $url = "null";
+        }
+
         if ($request->file('upload')->isValid([])) {
             $date = date('YmdHis');
             $img = $id . "_" . $date . ".jpg";

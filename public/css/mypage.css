@@ -6,6 +6,12 @@
     box-shadow: 0px 0px 5px gray;
 }
 
+#p_art {
+    width: 60%;
+    margin: auto;
+    box-shadow: 0px 10px 10px 3px grey;
+}
+
 #works {
     width: 100%;
     margin-top: 50px;
@@ -56,7 +62,7 @@
 }
 
 .prof {
-    width: 60%;
+    width: 100%;
     margin: auto;
     display: grid;
     grid-template-columns: 20% 50% 25%;
@@ -65,8 +71,8 @@
     background: radial-gradient(white, papayawhip, antiquewhite);
     padding: 30px 30px 60px;
 }
-.prof h2,
-.prof a {
+.prof #penname,
+.prof #editProf {
     padding: 50px 0;
 }
 
@@ -78,6 +84,7 @@
     grid-column: 1/3;
     grid-row: 2/2;
     padding: 10px 0 10px 10%;
+    color: #505050;
 }
 
 #rew {
@@ -95,4 +102,51 @@
 }
 .perform #showPerformance {
     padding-right: 35px;
+}
+
+#performances {
+    margin-top: 10px;
+}
+.child {
+    width: 95%;
+    height: 300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    grid-template-rows: 20% 10% 70%;
+    padding: 30px;
+    border-top: 1px dotted gray;
+}
+.child:last-child {
+    border-bottom: 1px dotted gray;
+}
+.img {
+    max-width: 90%;
+    max-height: 300px;
+    grid-column: 1/2;
+    grid-row: 1/4;
+    align-self: center;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px gray;
+}
+.title {
+    text-align: center;
+    grid-column: 2/4;
+    grid-row: 1/2;
+}
+.url {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    color: midnightblue;
+}
+.made {
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+.com {
+    grid-column: 2/4;
+    grid-row: 3/4;
+    text-align: left;
+    border-top: 0.5px dotted silver;
+    color: #505050;
 }

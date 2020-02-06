@@ -27,6 +27,7 @@ Route::post('makeQuest', 'QuestController@makeQuest');
 Route::post('storeQuest', 'QuestController@storeQuest');
 
 Route::post('profile', 'GuildController@profile');
+Route::post('otherProf', 'UserController@otherProf');
 
 Route::post('questDetail', 'QuestController@questDetail');
 
