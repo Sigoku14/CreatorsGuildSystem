@@ -199,7 +199,7 @@ class UserController extends Controller
         // $fileData = base64_decode($fileData);
         $fileName = $request->input('id') . "_icon" . '.jpg';
         // // 保存するパスを決める
-        // $path = "/var/www/html/CreatorsGuild/public/img/userIcon/";
+        // $path = "/img/userIcon/";
         // // $data = Storage::putFileAs($path, $fileData, $fileName);
 
         DB::table('users')

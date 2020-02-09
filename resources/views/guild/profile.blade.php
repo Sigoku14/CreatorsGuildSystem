@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', 'マイページ')
-@section('css', '/var/www/html/CreatorsGuild/public/css/mypage.css')
+@section('css', '/css/mypage.css')
 @include('template/header')
 
 @section('content')
@@ -29,7 +29,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/otherProf",
+            url: "/api/otherProf",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -51,9 +51,9 @@
                 }
 
                 if (value.user_icon_path === null || value.user_icon_path === "") {
-                    image = "/var/www/html/CreatorsGuild/public/img/icon/noImage.png";
+                    image = "/img/icon/noImage.png";
                 } else {
-                    image = '/var/www/html/CreatorsGuild/public/img/userIcon/' + value.user_icon_path;
+                    image = '/img/userIcon/' + value.user_icon_path;
                 }
                 $("#userIcon").attr('src', image);
                 i++;
@@ -72,7 +72,7 @@
 
                 var img = document.createElement("img");
                 img.className = "img";
-                img.setAttribute('src', "/var/www/html/CreatorsGuild/public/storage/portfolio/" + value.img_path);
+                img.setAttribute('src', "/storage/portfolio/" + value.img_path);
                 child.appendChild(img);
 
                 if (value.url != "null") {

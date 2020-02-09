@@ -8,7 +8,7 @@
     <meta name="keywords" content="" />
     <!-- StyleSheet -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link type="text/css" rel="stylesheet" href="/var/www/html/CreatorsGuild/public/css/default.css" />
+    <link type="text/css" rel="stylesheet" href="/css/default.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
     <title>ログイン</title>
 </head>
@@ -17,7 +17,7 @@
     <!-- header -->
     <header>
         <div id="header">
-            <h1 id="headerLogo"><a href="/var/www/html/CreatorsGuild/public/"><img src="/var/www/html/CreatorsGuild/public/img/image/logo.png" alt="ロゴロゴ"></a></h1>
+            <h1 id="headerLogo"><a href="/"><img src="/img/image/logo.png" alt="ロゴロゴ"></a></h1>
         </div>
     </header>
     <!-- /header -->
@@ -25,7 +25,7 @@
     <div id="body">
         <div class="workBox">
             <form>
-                <h2 class="title"><img src="/var/www/html/CreatorsGuild/public/img/image/login_title.svg" alt="ログイン" /></h2>
+                <h2 class="title"><img src="/img/image/login_title.svg" alt="ログイン" /></h2>
                 <dl class="login">
                     <dt><label for="mail">メールアドレス</label></dt>
                     <dd><input type="text" id="mail" name="user_mail" /></dd>
@@ -36,7 +36,7 @@
             </form>
         </div>
         <div class="add">
-            <p><a href="/var/www/html/CreatorsGuild/public/goRegister">新規登録の場合はこちら</a></p>
+            <p><a href="/goRegister">新規登録の場合はこちら</a></p>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/var/www/html/CreatorsGuild/public/js/jquery.anchor.js"></script>
+<script src="/js/jquery.anchor.js"></script>
 <script type="text/javascript">
     $("#submit").on('click', function() {
         var user_mail = $('[name=user_mail]').val();
@@ -64,7 +64,7 @@
         console.log(send_data);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/login",
+            url: "/api/login",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: send_data,
             headers: {
@@ -74,7 +74,7 @@
             //success
             var id = msg['id'];
             if (msg['status'] == "success") {
-                window.location.href = "/var/www/html/CreatorsGuild/public/goHome/" + id;
+                window.location.href = "/goHome/" + id;
             }
         }).fail(function(xhr, status, error) {
             //error

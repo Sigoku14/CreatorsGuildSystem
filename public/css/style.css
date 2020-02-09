@@ -24,7 +24,7 @@ body {
     letter-spacing: 1px;
     font-family: "メイリオ", "Meiryo", sans-serif;
     font-size: 1.4em;
-    background: url(/var/www/html/CreatorsGuild/public/img/image/background.png);
+    background: url(/img/image/background.png);
 }
 
 body:before {

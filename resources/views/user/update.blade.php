@@ -39,7 +39,7 @@
         console.log(send_data);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/update",
+            url: "/api/update",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

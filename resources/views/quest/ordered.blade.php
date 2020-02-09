@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', '受注クエスト一覧')
-@section('css', '/var/www/html/CreatorsGuild/public/css/ordered.css')
+@section('css', '/css/ordered.css')
 @include('template/header')
 
 @section('content')
@@ -20,7 +20,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/showOrdered",
+            url: "/api/showOrdered",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -74,7 +74,7 @@
                 var ownerNameP = document.createElement("p");
                 owner.appendChild(ownerNameP);
                 var ownerName = document.createElement("a");
-                ownerName.href = "/var/www/html/CreatorsGuild/public/showProfile/{{$id}}/" + value.user_id;
+                ownerName.href = "/showProfile/{{$id}}/" + value.user_id;
                 ownerName.innerHTML = value.penname;
                 ownerNameP.appendChild(ownerName);
 
@@ -160,7 +160,7 @@
                                 icon: "success",
                             }).then((yes) => {
                                 if (yes) {
-                                    window.location.href = "/var/www/html/CreatorsGuild/public/evaluation/{{$id}}/" + value.quest_id + "/1";
+                                    window.location.href = "/evaluation/{{$id}}/" + value.quest_id + "/1";
                                 }
                             })
                         } else {
@@ -194,7 +194,7 @@
 
                 var goQuestLink = document.createElement("a");
                 goQuestLink.innerHTML = "ギルド広場へ";
-                goQuestLink.href = "/var/www/html/CreatorsGuild/public/goHome/{{$id}}";
+                goQuestLink.href = "/goHome/{{$id}}";
                 guildPaper.appendChild(goQuestLink);
             }
         }).fail(function(xhr, status, error) {

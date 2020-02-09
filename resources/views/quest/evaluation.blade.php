@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', 'レビュー')
-@section('css', '/var/www/html/CreatorsGuild/public/css/evaluation.css')
+@section('css', '/css/evaluation.css')
 @include('template/header')
 
 @section('content')
@@ -96,7 +96,7 @@
         console.log(send_data);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/storeEvaluation",
+            url: "/api/storeEvaluation",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -106,7 +106,7 @@
             console.log(msg);
             swal("お疲れ様でした。またのご利用お待ちしてます。").then((yes) => {
                 if (yes) {
-                    window.location.href = "/var/www/html/CreatorsGuild/public/goHome/{{$id}}/";
+                    window.location.href = "/goHome/{{$id}}/";
                 }
             });
         }).fail(function(xhr, status, error) {

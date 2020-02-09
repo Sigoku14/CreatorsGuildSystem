@@ -9,15 +9,15 @@
     <title>ユーザー登録</title>
     <!-- StyleSheet -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link type="text/css" rel="stylesheet" href="/var/www/html/CreatorsGuild/public/css/default.css" />
-    <link type="text/css" rel="stylesheet" href="/var/www/html/CreatorsGuild/public/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/default.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body id="index" class="index">
     <!-- header -->
     <header>
         <div id="header">
-            <h1 id="headerLogo"><a href="/var/www/html/CreatorsGuild/public/"><img src="/var/www/html/CreatorsGuild/public/img/image/logo.png" alt="ロゴロゴ"></a></h1>
+            <h1 id="headerLogo"><a href="/"><img src="/img/image/logo.png" alt="ロゴロゴ"></a></h1>
         </div>
     </header>
     <!-- /header -->
@@ -25,7 +25,7 @@
     <nav>
         <div id="breadcrumbs">
             <p>
-                <a href="/var/www/html/CreatorsGuild/public/" rel="home">ホーム</a>
+                <a href="/" rel="home">ホーム</a>
                 <span class="delimiter"></span>
                 <span>ユーザー登録</span>
             </p>
@@ -38,7 +38,7 @@
         <div id="body">
             <div class="workBox">
                 <form>
-                    <h2 class="title"><img src="/var/www/html/CreatorsGuild/public/img/image/register_title.svg" alt="ユーザー登録" /></h2>
+                    <h2 class="title"><img src="/img/image/register_title.svg" alt="ユーザー登録" /></h2>
                     <table class="register">
                         <tbody>
                             <tr>
@@ -83,7 +83,7 @@
             console.log(send_data);
             $.ajax({
                 type: "POST",
-                url: "/var/www/html/CreatorsGuild/public/api/register",
+                url: "/api/register",
                 contentType: "Content-Type: application/json; charset=UTF-8",
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -93,7 +93,7 @@
                 //success
                 var id = msg['id'];
                 if (msg['status'] == "success") {
-                    window.location.href = "/var/www/html/CreatorsGuild/public/goHome/" + id;
+                    window.location.href = "/goHome/" + id;
                 }
             }).fail(function(xhr, status, error) {
                 console.log(status);

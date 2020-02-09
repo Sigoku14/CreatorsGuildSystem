@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', 'クエスト登録')
-@section('css', '/var/www/html/CreatorsGuild/public/css/makeQuest.css')
+@section('css', '/css/makeQuest.css')
 @include('template/header')
 
 @section('content')
@@ -73,7 +73,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/makeQuest",
+            url: "/api/makeQuest",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -132,7 +132,7 @@
         console.log(send_data);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/storeQuest",
+            url: "/api/storeQuest",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -141,7 +141,7 @@
         }).done(function(msg, status, xhr) {
             console.log(msg);
             if (msg.status === true) {
-                window.location.href = "/var/www/html/CreatorsGuild/public/goMadeQuest/" + user_id;
+                window.location.href = "/goMadeQuest/" + user_id;
             } else {
                 $(".error").append("<p>" + msg.response + "</p>")
             }

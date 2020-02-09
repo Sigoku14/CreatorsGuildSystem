@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', 'ギルド広場')
-@section('css', '/var/www/html/CreatorsGuild/public/css/home.css')
+@section('css', '/css/home.css')
 @include('template/header')
 
 @section('content')
@@ -76,7 +76,7 @@
 </article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/var/www/html/CreatorsGuild/public/js/showThisQuest.js"></script>
+<script src="/js/showThisQuest.js"></script>
 <script type="text/javascript">
     $("body").ready(function() {
         var id = {
@@ -85,7 +85,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/showHome",
+            url: "/api/showHome",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -169,7 +169,7 @@
                     $("#type").append("納品形式：<span>" + value.submit_type + "</span>");
                     $("#genre").append("依頼ジャンル：<span>" + value.genre_name + "</span>");
                     $("#lank").append("推奨ランク：<span>" + value.lank_name + "</span>");
-                    $("#owner-name").append('<a href="/var/www/html/CreatorsGuild/public/showProfile/{{$id}}/' + value.user_id + '" id="owner">' + value.user_id + '</a>');
+                    $("#owner-name").append('<a href="/showProfile/{{$id}}/' + value.user_id + '" id="owner">' + value.user_id + '</a>');
                     $("#now").append("募集人数：<span>" + msg.count[value.quest_id] + "/" + value.quest_people + "人</span>");
                     $("#applied").append("応募締切日：<span>" + afterApplied + " </span>");
                     $("#created-at").append("クエスト発行日：<span>" + afterCreated + " </span>");
@@ -218,7 +218,7 @@
         send_data = JSON.stringify(arrayData);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/conditionQuest",
+            url: "/api/conditionQuest",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -316,7 +316,7 @@
         send_data = JSON.stringify(arrayData);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/applyQuest",
+            url: "/api/applyQuest",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

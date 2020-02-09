@@ -5,7 +5,7 @@ function getThisQuest(questId) {
     senddata = JSON.stringify(id);
     $.ajax({
         type: "POST",
-        url: "/var/www/html/CreatorsGuild/public/api/showThisQuest",
+        url: "/api/showThisQuest",
         contentType: "Content-Type: application/json; charset=UTF-8",
         data: senddata,
         headers: {

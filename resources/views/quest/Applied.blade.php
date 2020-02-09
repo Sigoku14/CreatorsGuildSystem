@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', '応募クエスト一覧')
-@section('css', '/var/www/html/CreatorsGuild/public/css/applied.css')
+@section('css', '/css/applied.css')
 @include('template/header')
 
 @section('content')
@@ -19,7 +19,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/showApplied",
+            url: "/api/showApplied",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -72,7 +72,7 @@
                 var ownerNameP = document.createElement("p");
                 owner.appendChild(ownerNameP);
                 var ownerName = document.createElement("a");
-                ownerName.href = "/var/www/html/CreatorsGuild/public/showProfile/{{$id}}/" + value.user_id;
+                ownerName.href = "/showProfile/{{$id}}/" + value.user_id;
                 ownerName.innerHTML = value.penname;
                 ownerNameP.appendChild(ownerName);
 
@@ -166,7 +166,7 @@
 
                 var goQuestLink = document.createElement("a");
                 goQuestLink.innerHTML = "ギルド広場へ";
-                goQuestLink.href = "/var/www/html/CreatorsGuild/public/goHome/{{$id}}";
+                goQuestLink.href = "/goHome/{{$id}}";
                 guildPaper.appendChild(goQuestLink);
             }
         }).fail(function(xhr, status, error) {

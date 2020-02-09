@@ -1,7 +1,7 @@
 @extends('template/template')
 
 @section('title', 'プロフィール編集')
-@section('css', '/var/www/html/CreatorsGuild/public/css/profEdit.css')
+@section('css', '/css/profEdit.css')
 @include('template/header')
 
 @section('content')
@@ -83,7 +83,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/goProfEdit",
+            url: "/api/goProfEdit",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -138,7 +138,7 @@
         // console.log(send_data);
         $.ajax({
             type: "POST",
-            url: "/var/www/html/CreatorsGuild/public/api/profEdit",
+            url: "/api/profEdit",
             contentType: "Content-Type: application/json; charset=UTF-8",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
