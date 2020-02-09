@@ -1,13 +1,13 @@
 @extends('template/template')
 
 @section('title', '実績編集')
-@section('css', '/CreatorsGuild/public/css/showPerformance.css')
+@section('css', '/var/www/html/CreatorsGuild/public/css/showPerformance.css')
 @include('template/header')
 
 @section('content')
 <article id="performance">
     <h2>実績登録</h2>
-    <form action="/CreatorsGuild/public/addPerformance" method="post" enctype="multipart/form-data">
+    <form action="/var/www/html/CreatorsGuild/public/addPerformance" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <input type="file" name="upload" id="upload">

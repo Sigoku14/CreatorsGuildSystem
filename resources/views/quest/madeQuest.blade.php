@@ -1,14 +1,14 @@
 @extends('template/template')
 
 @section('title', '依頼中クエスト一覧')
-@section('css', '/CreatorsGuild/public/css/madeQuest.css')
+@section('css', '/var/www/html/CreatorsGuild/public/css/madeQuest.css')
 @include('template/header')
 
 @section('content')
 <article>
     <h2>発注中クエストリスト</h2>
     <div class="makeQ">
-        <a href="/CreatorsGuild/public/makeQuest/{{$id}}">＋</a>
+        <a href="/var/www/html/CreatorsGuild/public/makeQuest/{{$id}}">＋</a>
     </div>
     <div id="list-shadow">
         <div id="list"></div>
@@ -24,7 +24,7 @@
         senddata = JSON.stringify(id);
         $.ajax({
             type: "POST",
-            url: "/CreatorsGuild/public/api/showMadeQuest",
+            url: "/var/www/html/CreatorsGuild/public/api/showMadeQuest",
             contentType: "Content-Type: application/json; charset=UTF-8",
             data: senddata,
             headers: {
@@ -52,7 +52,7 @@
 
                 //詳細へのリンク
                 var questLink = document.createElement("a");
-                questLink.href = "/CreatorsGuild/public/questDetail/{{$id}}/" + value.quest_id;
+                questLink.href = "/var/www/html/CreatorsGuild/public/questDetail/{{$id}}/" + value.quest_id;
                 questLink.className = "quest-link"
                 questLink.innerHTML = value.quest_title;
                 questTitle.appendChild(questLink);
