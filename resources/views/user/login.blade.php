@@ -9,7 +9,7 @@
     <!-- StyleSheet -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link type="text/css" rel="stylesheet" href="/var/www/html/CreatorsGuild/public/css/default.css" />
-    <link type="text/css" rel="stylesheet" href="public/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
     <title>ログイン</title>
 </head>
 
