@@ -41,6 +41,7 @@ class QuestController extends Controller
             'date' => $date
         ]);
     }
+
     public function conditionQuest(Request $request)
     {
         $id = $request->input('id');
@@ -87,6 +88,7 @@ class QuestController extends Controller
             'lank' => $lank,
         ]);
     }
+
     public function showThisQuest(Request $request)
     {
         $q_id = $request->input('q_id');
@@ -108,6 +110,7 @@ class QuestController extends Controller
             'count' => $count
         ]);
     }
+
     public function applyQuest(Request $request)
     {
         $id = $request->input('id');
@@ -132,7 +135,6 @@ class QuestController extends Controller
             'status' => $status,
         ]);
     }
-
 
     public function showMadeQuest(Request $request)
     {
@@ -289,7 +291,7 @@ class QuestController extends Controller
         $created_at = date('Y-m-d H:i:s');
 
         foreach ($c_id as $creator_id) {
-            DB::table('decision')->insert(
+            DB::table('quest_decided')->insert(
                 ['quest_id' => $q_id, 'user_id' => $creator_id, 'created_at' => $created_at]
             );
         }
@@ -310,6 +312,7 @@ class QuestController extends Controller
     {
         $q_id = $request->input('quest_id');
         $id = $request->input('user_id');
+        $evad_id = $request->input('evad_id');
         $status = $request->input('status');
         $q1 = $request->input('q1');
         $q2 = $request->input('q2');
@@ -320,35 +323,39 @@ class QuestController extends Controller
 
         //依頼主に対する評価のインサート
         if ($status == 1) {
-            $already = DB::table('evaluation_to_owner')->select()
+            $already = DB::table('owner_evaluations')->select()
                 ->where('quest_id', $q_id)
                 ->where('user_id', $id)
+                ->where('evad_id', $evad_id)
                 ->count();
 
             if ($already === 0) {
-                DB::table('evaluation_to_owner')->insert(
-                    ['quest_id' => $q_id, 'user_id' => $id, 'support' => $q1, 'difficulty' => $q2, 'sincerity' => $q3, 'repeat' => $q4, 'comment' => $com,  'created_at' => $created_at]
+                DB::table('owner_evaluations')->insert(
+                    ['quest_id' => $q_id, 'user_id' => $id, 'evad_id' => $evad_id, 'support' => $q1, 'difficulty' => $q2, 'sincerity' => $q3, 'repeat' => $q4, 'comment' => $com,  'created_at' => $created_at]
                 );
             } else {
-                DB::table('evaluation_to_owner')
+                DB::table('owner_evaluations')
                     ->where('quest_id', $q_id)
                     ->where('user_id', $id)
+                    ->where('evad_id', $evad_id)
                     ->update(['support' => $q1, 'difficulty' => $q2, 'sincerity' => $q3, 'repeat' => $q4, 'comment' => $com]);
             }
         } else {
-            $already = DB::table('evaluation_to_creator')->select()
+            $already = DB::table('creator_evaluations')->select()
                 ->where('quest_id', $q_id)
                 ->where('user_id', $id)
+                ->where('evad_id', $evad_id)
                 ->count();
 
             if ($already ===  0) {
-                DB::table('evaluation_to_creator')->insert(
-                    ['quest_id' => $q_id, 'user_id' => $id, 'completeness' => $q1, 'support' => $q2, 'compliance' => $q3, 'repeat' => $q4, 'comment' => $com,  'created_at' => $created_at]
+                DB::table('creator_evaluations')->insert(
+                    ['quest_id' => $q_id, 'user_id' => $id, 'evad_id' => $evad_id, 'completeness' => $q1, 'support' => $q2, 'compliance' => $q3, 'repeat' => $q4, 'comment' => $com,  'created_at' => $created_at]
                 );
             } else {
-                DB::table('evaluation_to_creator')
+                DB::table('creator_evaluations')
                     ->where('quest_id', $q_id)
                     ->where('user_id', $id)
+                    ->where('evad_id', $evad_id)
                     ->update(['completeness' => $q1, 'support' => $q2, 'compliance' => $q3, 'repeat' => $q4, 'comment' => $com]);
             }
         }
@@ -358,10 +365,10 @@ class QuestController extends Controller
             ->count();
         $creators = $creators + 1;
 
-        $eva1 = DB::table('evaluation_to_creator')->select()
+        $eva1 = DB::table('creator_evaluations')->select()
             ->where('quest_id', $q_id)
             ->count();
-        $eva2 = DB::table('evaluation_to_owner')->select()
+        $eva2 = DB::table('owner_evaluations')->select()
             ->where('quest_id', $q_id)
             ->count();
 

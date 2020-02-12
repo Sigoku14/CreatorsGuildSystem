@@ -16,6 +16,7 @@ class CreateCreatorEvaluationsTable extends Migration
         Schema::create('creator_evaluations', function (Blueprint $table) {
             $table->integer('quest_id');
             $table->string('user_id');
+            $table->string('evad_id');
             $table->integer('completeness');
             $table->integer('support');
             $table->integer('compliance');

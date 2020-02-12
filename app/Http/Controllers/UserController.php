@@ -137,11 +137,21 @@ class UserController extends Controller
             ->where('user_id', $id)
             ->get();
 
+        $o_eva = DB::table('owner_evaluations')->select()
+            ->where('evad_id', $id)
+            ->get();
+        $c_eva = DB::table('creator_evaluations')->select()
+            ->where('evad_id', $id)
+            ->get();
+
         return  response()->json([
             'profile' => $profile,
             'performance' => $performance,
+            'o_eva' => $o_eva,
+            'c_eva' => $c_eva
         ]);
     }
+
     public function otherProf(Request $request)
     {
         $o_id = $request->input("o_id");

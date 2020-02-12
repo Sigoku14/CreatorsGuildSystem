@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class RouteController extends Controller
 {
@@ -72,9 +73,19 @@ class RouteController extends Controller
 
     public function evaluation(string $id, int $q_id, int $status)
     {
+        if ($status == 1) {
+            $evad_id = DB::table('quests')->select('user_id')
+                ->where('quest_id', '=', $q_id)
+                ->get();
+        } else {
+            $evad_id = DB::table('quest_apply')->select('user_id')
+                ->where('quest_id', '=', $q_id)
+                ->get();
+        }
         return view("quest/evaluation")->with([
             "id" => $id,
             "q_id" => $q_id,
+            "evad_id" => $evad_id,
             "status" => $status,
         ]);
     }

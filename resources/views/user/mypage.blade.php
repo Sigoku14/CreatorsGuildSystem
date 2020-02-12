@@ -96,6 +96,19 @@
                 comment.innerHTML = value.comment.replace(/\r?\n/g, '<br>');
                 child.appendChild(comment);
             }
+
+            if (msg.c_eva != "") {
+                console.log('DFGHJKL+*');
+            } else {
+                console.log('AAAAAAAAAAA');
+            }
+
+            if (msg.o_eva != "") {
+                console.log('DFGHJKL+*');
+            } else {
+                console.log('AAAAAAAAAAA');
+            }
+
         }).fail(function(xhr, status, error) {
             //error
             console.log(status);

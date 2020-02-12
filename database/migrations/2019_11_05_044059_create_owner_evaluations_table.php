@@ -16,6 +16,7 @@ class CreateOwnerEvaluationsTable extends Migration
         Schema::create('owner_evaluations', function (Blueprint $table) {
             $table->integer('quest_id');
             $table->string('user_id');
+            $table->string('evad_id');
             $table->integer('support');
             $table->integer('difficulty');
             $table->integer('sincerity');
