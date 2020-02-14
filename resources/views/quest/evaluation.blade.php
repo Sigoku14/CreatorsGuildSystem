@@ -75,7 +75,6 @@
     $("#push").on('click', function() {
         var user_id = "{{$id}}";
         var quest_id = "{{$q_id}}";
-        var evad_id = "{{$evad_id}}";
         var status = "{{$status}}";
         var q1 = $('[name=q1]').val();
         var q2 = $('[name=q2]').val();
@@ -86,7 +85,6 @@
         var arrayData = {
             'user_id': user_id,
             'quest_id': quest_id,
-            'evad_id': evad_id,
             'status': status,
             'q1': q1,
             'q2': q2,

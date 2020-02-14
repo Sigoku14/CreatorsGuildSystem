@@ -71,13 +71,13 @@
     background: radial-gradient(white, papayawhip, antiquewhite);
     padding: 30px 30px 60px;
 }
-.prof #penname,
 .prof #editProf {
     padding: 50px 0;
 }
 
 #editProf {
     color: gray;
+    text-align: center;
 }
 
 .profile {
@@ -149,4 +149,33 @@
     text-align: left;
     border-top: 0.5px dotted silver;
     color: #505050;
+}
+
+#user-info {
+    height: 150px;
+}
+#user-info h2 {
+    height: 50%;
+    padding: 20px 0 0 0;
+}
+#user-info #exp-bar {
+    height: 50%;
+}
+#exp-bar .exp-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border: 2px solid chocolate;
+    border-radius: 5px;
+}
+.exp-box .user-exp-box {
+    padding: 5px;
+    background-color: red;
+}
+.exp-box .base-exp-box {
+    padding: 5px;
+}
+.exp-box .baseexp {
+    font-size: small;
 }

@@ -14,37 +14,37 @@ class UserExpsTableSeeder extends Seeder
         DB::table('user_exps')->insert([
             [
                 'user_id' => 'tester',
-                'exp' => '1000',
+                'exp' => '9000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'questmaker',
-                'exp' => '20',
+                'exp' => '20001',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'gamemaker',
-                'exp' => '150',
+                'exp' => '15000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'nier',
-                'exp' => '10000',
+                'exp' => '30000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'hikaru',
-                'exp' => '10000',
+                'exp' => '70000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'laravel',
-                'exp' => '3000',
+                'exp' => '13000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'user_id' => 'vue',
-                'exp' => '6000',
+                'exp' => '46000',
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ]);

@@ -143,12 +143,24 @@ class UserController extends Controller
         $c_eva = DB::table('creator_evaluations')->select()
             ->where('evad_id', $id)
             ->get();
+        $exp = DB::table('user_exps')->select('exp')
+            ->where('user_id', $id)
+            ->first();
+        foreach ($exp as $value) {
+            $exp = $value;
+        }
+        $bexp = DB::table('lanks')->select()
+            ->where('lank_max_score', '>=', $exp)
+            ->where('lank_min_score', '<=', $exp)
+            ->get();
 
         return  response()->json([
             'profile' => $profile,
             'performance' => $performance,
             'o_eva' => $o_eva,
-            'c_eva' => $c_eva
+            'c_eva' => $c_eva,
+            'exp' => $exp,
+            'bexp' => $bexp
         ]);
     }
 

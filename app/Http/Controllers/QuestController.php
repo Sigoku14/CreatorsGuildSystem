@@ -312,7 +312,6 @@ class QuestController extends Controller
     {
         $q_id = $request->input('quest_id');
         $id = $request->input('user_id');
-        $evad_id = $request->input('evad_id');
         $status = $request->input('status');
         $q1 = $request->input('q1');
         $q2 = $request->input('q2');
@@ -320,6 +319,13 @@ class QuestController extends Controller
         $q4 = $request->input('q4');
         $com = $request->input('com');
         $created_at = date('Y-m-d H:i:s');
+
+        $evad_id = DB::table('quest_decided')->select('user_id')
+            ->where('quest_id', '=', $q_id)
+            ->first();
+        foreach ($evad_id as $value) {
+            $evad_id = $value;
+        }
 
         //依頼主に対する評価のインサート
         if ($status == 1) {
@@ -377,13 +383,35 @@ class QuestController extends Controller
                 ->where('quest_id', $q_id)
                 ->update(['status' => 9]);
         }
+        if ($status == 2) {
+            $u_exp = DB::table('user_exps')->select('exp')->where('user_id', '=', $evad_id)->first();
+            foreach ($u_exp as $value) {
+                $u_exp = $value;
+            }
+            $lank = DB::table('quests')->select('quest_level')->where('quest_id', '=', $q_id)->first();
+            foreach ($lank as $value) {
+                $lank = $value;
+            }
+            $ave = floor(($q1 + $q2 + $q3 + $q4) / 8);
+            $base = 80;
+            $exp = $u_exp + ($ave * ($base * (($lank + 1) / 2)));
+            $updated_at = date('Y-m-d H:i:s');
+
+            DB::table('user_exps')
+                ->where('user_id', $evad_id)
+                ->update([
+                    'exp' => $exp,
+                    'updated_at' => $updated_at
+                ]);
+        }
 
         $status = true;
         return response()->json([
             'status' => $status,
             'eva1' => $eva1,
             'eva2' => $eva2,
-            'cre' => $creators
+            'cre' => $creators,
+            'exp' => $exp
         ]);
     }
 }

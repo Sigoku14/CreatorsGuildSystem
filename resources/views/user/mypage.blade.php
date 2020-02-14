@@ -8,7 +8,10 @@
 <article id="p_art">
     <div class="prof">
         <img src="" alt="のアイコン" id="userIcon">
-        <h2 id="penname"></h2>
+        <div id="user-info">
+            <h2 id="penname"></h2>
+            <section id="exp-bar"></section>
+        </div>
         <a href="/CreatorsGuild/public/goProfEdit/{{$id}}" id="editProf">プロフィールを編集</a>
         <br>
         <!-- <a href="/CreatorsGuild/public/goUpdate/{{$id}}" id="update">ユーザ設定を編集</a> -->
@@ -20,7 +23,6 @@
     </div>
 </article>
 <article id=" works">
-
 </article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -97,12 +99,41 @@
                 child.appendChild(comment);
             }
 
+            var exp_bar = document.getElementById("exp-bar");
+            for (const [key, value] of Object.entries(msg.bexp)) {
+                var expbox = document.createElement("div");
+                expbox.className = "exp-box";
+                exp_bar.appendChild(expbox);
+
+                var uediv = document.createElement("div");
+                uediv.className = "user-exp-box";
+                expbox.appendChild(uediv);
+
+                var expnum = document.createElement("span");
+                expnum.className = "expnum";
+                expnum.innerHTML = msg.exp + "exp";
+                uediv.appendChild(expnum);
+
+                var bediv = document.createElement("div");
+                bediv.className = "base-exp-box";
+                expbox.appendChild(bediv);
+
+                var baseexp = document.createElement("span");
+                baseexp.className = "baseexp";
+                baseexp.innerHTML = value.lank_max_score + "exp";
+                bediv.appendChild(baseexp);
+
+                var percent = (msg.exp / Number(value.lank_max_score)) * 100;
+                console.log(percent);
+            }
+
+            $('.user-exp-box').css('width', percent + '%');
+
             if (msg.c_eva != "") {
                 console.log('DFGHJKL+*');
             } else {
                 console.log('AAAAAAAAAAA');
             }
-
             if (msg.o_eva != "") {
                 console.log('DFGHJKL+*');
             } else {
