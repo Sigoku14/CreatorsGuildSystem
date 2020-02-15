@@ -16,9 +16,17 @@
         <br>
         <!-- <a href="/CreatorsGuild/public/goUpdate/{{$id}}" id="update">ユーザ設定を編集</a> -->
         <section class="profile"></section>
+        <section id="shows">
+            <div class="show_e">評価を見る</div>
+            <div class="show_p">ポートフォリオを見る</div>
+        </section>
         <div class="perform">
             <a href="/CreatorsGuild/public/showPerformance/{{$id}}" id="showPerformance">実績追加</a>
             <div id="performances"></div>
+        </div>
+        <div class="evaluation">
+            <div id="c_evaluation"></div>
+            <div id="u_evaluation"></div>
         </div>
     </div>
 </article>
@@ -124,27 +132,91 @@
                 bediv.appendChild(baseexp);
 
                 var percent = (msg.exp / Number(value.lank_max_score)) * 100;
-                console.log(percent);
             }
-
             $('.user-exp-box').css('width', percent + '%');
 
             if (msg.c_eva != "") {
-                console.log('DFGHJKL+*');
-            } else {
-                console.log('AAAAAAAAAAA');
+                var parent = document.getElementById('c_evaluation');
+                for (const [key, value] of Object.entries(msg.c_eva)) {
+                    var eva_box = document.createElement("div");
+                    eva_box.className = "eva-box";
+                    parent.appendChild(eva_box);
+
+                    var q1 = document.createElement("div");
+                    q1.className = "q1";
+                    q1.innerHTML = "<span>クオリティ：</span>" + value.completeness;
+                    eva_box.appendChild(q1);
+
+                    var q2 = document.createElement("div");
+                    q2.className = "q2";
+                    q2.innerHTML = "<span>対応力：</span>" + value.support;
+                    eva_box.appendChild(q2);
+
+                    var q3 = document.createElement("div");
+                    q3.className = "q3";
+                    q3.innerHTML = "<span>納期厳守：</span>" + value.compliance;
+                    eva_box.appendChild(q3);
+
+                    var q4 = document.createElement("div");
+                    q4.className = "q4";
+                    q4.innerHTML = "<span>リピート：</span>" + value.repeat;
+                    eva_box.appendChild(q4);
+
+                    var comment = document.createElement("div");
+                    comment.className = "com";
+                    comment.innerHTML = value.comment.replace(/\r?\n/g, '<br>');
+                    eva_box.appendChild(comment);
+                }
             }
             if (msg.o_eva != "") {
-                console.log('DFGHJKL+*');
-            } else {
-                console.log('AAAAAAAAAAA');
-            }
+                var parent = document.getElementById('o_evaluation');
+                for (const [key, value] of Object.entries(msg.c_eva)) {
+                    var eva_box = document.createElement("div");
+                    eva_box.className = "eva-box";
+                    parent.appendChild(eva_box);
 
+                    var q1 = document.createElement("div");
+                    q1.className = "q1";
+                    q1.innerHTML = "<span>対応力：</span>" + value.support;
+                    eva_box.appendChild(q1);
+
+                    var q2 = document.createElement("div");
+                    q2.className = "q2";
+                    q2.innerHTML = "<span>適性な難易度：</span>" + value.difficulty;
+                    eva_box.appendChild(q2);
+
+                    var q3 = document.createElement("div");
+                    q3.className = "q3";
+                    q3.innerHTML = "<span>急な仕様変更：</span>" + value.sincerity;
+                    eva_box.appendChild(q3);
+
+                    var q4 = document.createElement("div");
+                    q4.className = "q4";
+                    q4.innerHTML = "<span>リピート：</span>" + value.repeat;
+                    eva_box.appendChild(q4);
+
+                    var comment = document.createElement("div");
+                    comment.className = "com";
+                    comment.innerHTML = value.comment.replace(/\r?\n/g, '<br>');
+                    eva_box.appendChild(comment);
+                }
+            }
+            $('.evaluation').show();
+            $('.perform').hide();
         }).fail(function(xhr, status, error) {
             //error
             console.log(status);
             console.log(xhr);
         })
+    })
+
+    $(".show_e").on('click', function() {
+        $('.evaluation').show();
+        $('.perform').hide();
+    })
+    $(".show_p").on('click', function() {
+        $('.evaluation').hide();
+        $('.perform').show();
     })
 </script>
 @endsection
