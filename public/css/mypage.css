@@ -94,7 +94,8 @@
 }
 
 #shows {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     position: relative;
     grid-column: 1/4;
     grid-row: 3/4;
@@ -106,6 +107,8 @@
 #shows .show_p {
     width: 50%;
     text-align: center;
+    line-height: 300%;
+    cursor: pointer;
 }
 
 .perform {
@@ -200,4 +203,78 @@
     position: relative;
     grid-column: 1/4;
     grid-row: 4/5;
+}
+#c_evaluation,
+#p_evaluation {
+    width: 100%;
+    padding: 20px;
+}
+#c_evaluation h3,
+#p_evaluation h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16pt;
+}
+
+.eva-box {
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30px 30px 30px 30px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.eva-box .q1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    text-indent: 0.5em;
+    background: rgba(255, 0, 0, 0.5);
+    border: 0.5px solid red;
+    border-radius: 0 5px 5px 0;
+    line-height: 2;
+}
+.eva-box .q2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-indent: 0.5em;
+    background: rgb(255, 174, 0.5);
+    border: 0.5px solid orangered;
+    border-radius: 0 5px 5px 0;
+    line-height: 2;
+}
+.eva-box .q3 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    text-indent: 0.5em;
+    background: rgba(255, 238, 0, 0.5);
+    border: 0.5px solid gold;
+    border-radius: 0 5px 5px 0;
+    line-height: 2;
+}
+.eva-box .q4 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    text-indent: 0.5em;
+    background: rgba(157, 255, 0, 0.5);
+    border: 0.5px solid lime;
+    border-radius: 0 5px 5px 0;
+    line-height: 2;
+}
+.eva-box section {
+    grid-column: 2/3;
+    grid-row: 1/5;
+    padding: 10px;
+}
+
+.bor {
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-radius: 10px 10px 0 0;
+}
+.ubor {
+    border-bottom: 1px solid gray;
 }

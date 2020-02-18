@@ -137,6 +137,10 @@
 
             if (msg.c_eva != "") {
                 var parent = document.getElementById('c_evaluation');
+                var h3 = document.createElement("h3");
+                h3.className = "h3";
+                h3.innerHTML = "クリエイター評価";
+                parent.appendChild(h3);
                 for (const [key, value] of Object.entries(msg.c_eva)) {
                     var eva_box = document.createElement("div");
                     eva_box.className = "eva-box";
@@ -146,30 +150,38 @@
                     q1.className = "q1";
                     q1.innerHTML = "<span>クオリティ：</span>" + value.completeness;
                     eva_box.appendChild(q1);
+                    $('.q1 span').css('width', value.completeness + '%');
 
                     var q2 = document.createElement("div");
                     q2.className = "q2";
                     q2.innerHTML = "<span>対応力：</span>" + value.support;
                     eva_box.appendChild(q2);
+                    $('.q2').css('width', value.support + '%');
 
                     var q3 = document.createElement("div");
                     q3.className = "q3";
                     q3.innerHTML = "<span>納期厳守：</span>" + value.compliance;
                     eva_box.appendChild(q3);
+                    $('.q3').css('width', value.compliance + '%');
 
                     var q4 = document.createElement("div");
                     q4.className = "q4";
                     q4.innerHTML = "<span>リピート：</span>" + value.repeat;
                     eva_box.appendChild(q4);
+                    $('.q4').css('width', value.repeat + '%');
 
-                    var comment = document.createElement("div");
-                    comment.className = "com";
+                    var comment = document.createElement("section");
+                    comment.className = "comment";
                     comment.innerHTML = value.comment.replace(/\r?\n/g, '<br>');
                     eva_box.appendChild(comment);
                 }
             }
             if (msg.o_eva != "") {
                 var parent = document.getElementById('o_evaluation');
+                var h3 = document.createElement("h3");
+                h3.className = "h3";
+                h3.innerHTML = "依頼主評価";
+                parent.appendChild(h3);
                 for (const [key, value] of Object.entries(msg.c_eva)) {
                     var eva_box = document.createElement("div");
                     eva_box.className = "eva-box";
@@ -179,30 +191,38 @@
                     q1.className = "q1";
                     q1.innerHTML = "<span>対応力：</span>" + value.support;
                     eva_box.appendChild(q1);
+                    $('.q1').css('width', value.support + '%');
 
                     var q2 = document.createElement("div");
                     q2.className = "q2";
                     q2.innerHTML = "<span>適性な難易度：</span>" + value.difficulty;
                     eva_box.appendChild(q2);
+                    $('.q2').css('width', value.difficulty + '%');
 
                     var q3 = document.createElement("div");
                     q3.className = "q3";
                     q3.innerHTML = "<span>急な仕様変更：</span>" + value.sincerity;
                     eva_box.appendChild(q3);
+                    $('.q3').css('width', value.sincerity + '%');
 
                     var q4 = document.createElement("div");
                     q4.className = "q4";
                     q4.innerHTML = "<span>リピート：</span>" + value.repeat;
                     eva_box.appendChild(q4);
+                    $('.q4').css('width', value.repeat + '%');
 
-                    var comment = document.createElement("div");
-                    comment.className = "com";
+                    var comment = document.createElement("section");
+                    comment.className = "comment";
                     comment.innerHTML = value.comment.replace(/\r?\n/g, '<br>');
                     eva_box.appendChild(comment);
                 }
             }
             $('.evaluation').show();
             $('.perform').hide();
+            $('.show_e').addClass('bor');
+            $('.show_p').removeClass('bor');
+            $('.show_p').addClass('ubor');
+            $('.show_e').removeClass('ubor');
         }).fail(function(xhr, status, error) {
             //error
             console.log(status);
@@ -213,10 +233,18 @@
     $(".show_e").on('click', function() {
         $('.evaluation').show();
         $('.perform').hide();
+        $('.show_e').addClass('bor');
+        $('.show_p').removeClass('bor');
+        $('.show_p').addClass('ubor');
+        $('.show_e').removeClass('ubor');
     })
     $(".show_p").on('click', function() {
         $('.evaluation').hide();
         $('.perform').show();
+        $('.show_e').removeClass('bor');
+        $('.show_p').addClass('bor');
+        $('.show_e').addClass('ubor');
+        $('.show_p').removeClass('ubor');
     })
 </script>
 @endsection
