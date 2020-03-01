@@ -189,7 +189,7 @@
 }
 .exp-box .user-exp-box {
     padding: 5px;
-    background-color: red;
+    background-color: rgba(200, 0, 255, 0.5);
 }
 .exp-box .base-exp-box {
     padding: 5px;

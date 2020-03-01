@@ -319,6 +319,7 @@ class QuestController extends Controller
         $q4 = $request->input('q4');
         $com = $request->input('com');
         $created_at = date('Y-m-d H:i:s');
+        $exp = 0;
 
         $evad_id = DB::table('quest_decided')->select('user_id')
             ->where('quest_id', '=', $q_id)
