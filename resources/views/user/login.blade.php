@@ -44,7 +44,7 @@
     <!-- footer -->
     <footer>
         <div id="footer">
-            <p id="copyright">&copy;2019 foo</p>
+            <p id="copyright">© 2019-2020 H.Kitayama. All Rights Reserved.</p>
         </div>
     </footer>
     <!-- /footer -->
