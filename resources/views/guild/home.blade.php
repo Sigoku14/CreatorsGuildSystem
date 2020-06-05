@@ -324,6 +324,7 @@
             data: send_data
         }).done(function(msg, status, xhr) {
             console.log(msg);
+            window.location.href = "/CreatorsGuild/public/goApplied/" + user_id;
         }).fail(function(xhr, status, error) {
             console.log(xhr);
         })
