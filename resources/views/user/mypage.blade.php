@@ -228,6 +228,12 @@
             console.log(status);
             console.log(xhr);
         })
+        $('.evaluation').show();
+        $('.perform').hide();
+        $('.show_e').addClass('bor');
+        $('.show_p').removeClass('bor');
+        $('.show_p').addClass('ubor');
+        $('.show_e').removeClass('ubor');
     })
 
     $(".show_e").on('click', function() {
